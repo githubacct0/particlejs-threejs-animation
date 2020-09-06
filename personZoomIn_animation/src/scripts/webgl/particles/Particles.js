@@ -83,10 +83,10 @@ export default class Particles {
 
 		// positions
 		const positions = new THREE.BufferAttribute(new Float32Array(4 * 3), 3);
-		positions.setXYZ(0, -0.5, 0.5, 0.0);
-		positions.setXYZ(1, 0.5, 0.5, 0.0);
+		positions.setXYZ(0, -0.0, 0.5, 0.0);
+		positions.setXYZ(1, 0.0, 0.5, 0.0);
 		positions.setXYZ(2, -0.5, -0.5, 0.0);
-		positions.setXYZ(3, 0.5, -0.5, 0.0);
+		positions.setXYZ(3, 0.5, -0.5, -0.5);
 		geometry.addAttribute('position', positions);
 
 		// uvs
@@ -169,9 +169,11 @@ export default class Particles {
 		TweenLite.fromTo(element, time, { 2: 0.0 }, {2: 10.0});
 		TweenLite.fromTo(element, time, { 11: 2.0 }, {11: 10.0});
 
-		TweenLite.fromTo(this.object3D.material.uniforms.uSize, time, { value: 0.5 }, { value: 1.5 });
-		TweenLite.to(this.object3D.material.uniforms.uRandom, time, { value: 2.0 });
-		TweenLite.fromTo(this.object3D.material.uniforms.uDepth, time * 1.5, { value: 100.0 }, { value: 4.0 });
+		TweenLite.fromTo(this.object3D.scale, time * 7, { x: 0.0, y: 0.0, z:0.0 }, { x: 1, y: 1, z:1 });
+
+		TweenLite.fromTo(this.object3D.material.uniforms.uSize, time * 5, { value: 0.0 }, { value: 1.5 });
+		TweenLite.to(this.object3D.material.uniforms.uRandom, time* 5, { value: 2.0 });
+		TweenLite.fromTo(this.object3D.material.uniforms.uDepth, time * 12, { value: 400.0 }, { value: 4.0 });
 
 		this.addListeners();
 	}
