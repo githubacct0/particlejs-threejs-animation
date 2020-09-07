@@ -166,14 +166,15 @@ export default class Particles {
 
 	show(time = 1.0) {
 		var element  = this.object3D.geometry.attributes.position.array
-		TweenLite.fromTo(element, time, { 2: 0.0 }, {2: 10.0});
-		TweenLite.fromTo(element, time, { 11: 2.0 }, {11: 10.0});
+		// this.object3D.scale.set(0.2, 0.2, 0.2);
+		TweenLite.fromTo(element, time, { 2: 2.0 }, {2: 0.0});
+		TweenLite.fromTo(element, time, { 11: 2.0 }, {11: 0.0});
 
-		TweenLite.fromTo(this.object3D.scale, time * 7, { x: 0.0, y: 0.0, z:0.0 }, { x: 1, y: 1, z:1 });
+		TweenLite.fromTo(this.object3D.scale, time* 12, { x: 0.1, y: 0.1, z:0.1 }, { x: 1.4, y: 1.4, z:1.4, ease:Power2.easeInOut });
 
-		TweenLite.fromTo(this.object3D.material.uniforms.uSize, time * 5, { value: 0.0 }, { value: 1.5 });
-		TweenLite.to(this.object3D.material.uniforms.uRandom, time* 5, { value: 2.0 });
-		TweenLite.fromTo(this.object3D.material.uniforms.uDepth, time * 12, { value: 400.0 }, { value: 4.0 });
+		TweenLite.fromTo(this.object3D.material.uniforms.uSize, time * 12, { value: 0.0 }, { value: 1.0 });
+		TweenLite.to(this.object3D.material.uniforms.uRandom, time* 12, { value: 1.0 });
+		TweenLite.fromTo(this.object3D.material.uniforms.uDepth, time * 12, { value: 200.0 }, { value: 2.0, ease:Power2.easeIn });
 
 		this.addListeners();
 	}
