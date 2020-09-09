@@ -7220,8 +7220,8 @@ var pJS = function(tag_id, params){
 
   pJS.fn.particlesUpdate = function(){
     step++;
-    if(step < 800){
-        document.getElementById('person').style.opacity = (800-step)/800;
+    if(step < 200){
+        document.getElementById('person').style.opacity = (200-step)/200;
     }
     // console.log(step, coordinates_original[0]);
     var coordinates = coordinates_original.clone();
@@ -7229,13 +7229,13 @@ var pJS = function(tag_id, params){
     if(step < 1600){
       coordinates.forEach(item => {
         item.x = item.x * step/4 + pJS.canvas.w/2;
-        item.y = pJS.canvas.h/2 + 250 - item.y * step/4;
+        item.y = pJS.canvas.h*8/10 - item.y * step/4;
       });  
     }
     else{
       coordinates.forEach(item => {
         item.x = item.x * 400 + pJS.canvas.w/2;
-        item.y = pJS.canvas.h/2 + 250 - item.y * 400;
+        item.y = pJS.canvas.h*8/10 - item.y * 400;
       }); 
     }
     
