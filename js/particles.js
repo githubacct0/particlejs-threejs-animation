@@ -21177,10 +21177,10 @@ var pJS = function(tag_id, params){
     // console.log(step, coordinates_original[0]);
     var coordinates = coordinates_original.clone();
 
-    if(step < 1600){
+    if(step < 400){
       coordinates.forEach(item => {
-        item.x = item.x * step/4 + pJS.canvas.w/2;
-        item.y = pJS.canvas.h*8/10 - item.y * step/4;
+        item.x = item.x * step/1 + pJS.canvas.w/2;
+        item.y = pJS.canvas.h*8/10 - item.y * step/1;
       });  
     }
     else{
@@ -21196,7 +21196,7 @@ var pJS = function(tag_id, params){
       var p = pJS.particles.array[i];
       var velbase = {x: 0, y: 0};
       if(coordinates[i] && Math.abs(coordinates[i].x - p.x) > 0.01 && Math.abs(coordinates[i].y - p.y) > 0.01)
-        velbase = { x: (coordinates[i].x - p.x)/(Math.abs(coordinates[i].x - p.x) + Math.abs(coordinates[i].y - p.y)), y: (coordinates[i].y - p.y)/(Math.abs(coordinates[i].x - p.x) + Math.abs(coordinates[i].y - p.y))/2}; 
+        velbase = { x: 4*(coordinates[i].x - p.x)/(Math.abs(coordinates[i].x - p.x) + Math.abs(coordinates[i].y - p.y)), y: 4*(coordinates[i].y - p.y)/(Math.abs(coordinates[i].x - p.x) + Math.abs(coordinates[i].y - p.y))/2}; 
       if(pJS.particles.move.straight){
       p.vx = velbase.x;
       p.vy = velbase.y;
